@@ -1,0 +1,100 @@
+<!-- no validate this form because if user can access /options it's meaning user had logged in or isUserLoggedIn = true on localStorage -->
+<strong class="mt-2">Checkbox For Open & Close Standalone Components</strong>
+<div class="container mt-2">
+
+  <form #formDisableComponents="ngForm" (change)="onFormChange(formDisableComponents.value)" class="form-check">
+    <!-- if clicked then returns True -->
+    <input ngModel class="form-check-input" name="disableFormModule" type="checkbox">
+    <label class="form-check-label">Form Module</label>
+
+    <br>
+
+    <input ngModel class="form-check-input" name="disableReactForm" type="checkbox">
+    <label class="form-check-label">React Form</label>
+
+
+    <br>
+
+    <input ngModel class="form-check-input" name="disableStudentsTable" type="checkbox">
+    <label class="form-check-label">Students Table</label>
+
+    <br>
+
+    <input ngModel class="form-check-input" name="disableCreateStudentForm" type="checkbox">
+    <label class="form-check-label">Create Student</label>
+
+    <br>
+
+    <input ngModel class="form-check-input" name="disableTodosTable" type="checkbox">
+    <label class="form-check-label">Todos Table</label>
+
+    <br>
+
+
+    <input ngModel class="form-check-input" name="disableTechTable" type="checkbox">
+    <label class="form-check-label">Tech Table</label>
+
+
+
+    <br>
+
+
+    <input ngModel class="form-check-input" name="disableNgModelStandalone" type="checkbox">
+    <label class="form-check-label">NgModel on Standalone</label>
+
+
+    <br>
+
+
+    <input ngModel class="form-check-input" name="disableInputDecoratorParent" type="checkbox">
+    <label class="form-check-label">Input Decorator Parent</label>
+
+
+
+  </form>
+
+
+
+</div>
+
+<!--
+  *******
+  Remember if you disable it means component will close too
+  So when you able it it will work again as create new object that class
+  *******
+-->
+
+<div *ngIf="disableFormModule">
+  <app-understand-form-module></app-understand-form-module>
+</div>
+
+<div *ngIf="disableReactForm">
+  <app-understand-reactive-form></app-understand-reactive-form>
+</div>
+
+<div *ngIf="disableStudentsTable">
+  <app-table-students></app-table-students>
+</div>
+
+<div *ngIf="disableCreateStudentForm">
+  <app-create-student-form></app-create-student-form>
+</div>
+
+<div *ngIf="disableTodosTable">
+  <app-table-todos></app-table-todos>
+</div>
+
+
+<div *ngIf="disableTechTable">
+  <app-table-tech></app-table-tech>
+</div>
+
+<div *ngIf="disableNgModelStandalone">
+  <app-understnad-ngmodel-standalone></app-understnad-ngmodel-standalone>
+</div>
+
+
+<div *ngIf="disableInputDecoratorParent">
+  <app-input-decorator-parent></app-input-decorator-parent>
+</div>
+

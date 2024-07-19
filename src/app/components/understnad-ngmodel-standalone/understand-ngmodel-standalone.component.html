@@ -1,0 +1,54 @@
+<div class="container w-75 mt-5">
+  <strong>Form Module *** (Template driven forms) *** Two way</strong>
+  <div class="form-floating mb-3">
+
+    <input [(ngModel)]="student.fullname" type="text" class="form-control">
+    <label>Fullname</label>
+
+    <br>
+    <!-- Radio buttons -->
+    <strong>Faculty</strong>
+    <!-- radio button *** use same name difference value -->
+    <!-- *** remember get value from tags *** just mapped the name  -->
+    <!-- before mapped have to mark ngModel attribute in input text field.  -->
+    <div class="form-check">
+      <input [(ngModel)]="student.faculty" class="form-check-input" type="radio" name="faculty" id="exampleRadios1"
+             value="Faculty of Architecture" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        Faculty of Architecture
+      </label>
+    </div>
+    <div class="form-check">
+      <input [(ngModel)]="student.faculty" class="form-check-input" type="radio" name="faculty" id="exampleRadios2"
+             value="Faculty of Agriculture">
+      <label class="form-check-label" for="exampleRadios2">
+        Faculty of Agriculture
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input [(ngModel)]="student.faculty" class="form-check-input" type="radio" name="faculty" id="exampleRadios3"
+             value="Faculty of Science">
+      <label class="form-check-label" for="exampleRadios2">
+        Faculty of Science
+      </label>
+    </div>
+
+
+    <br>
+
+    <input [(ngModel)]="student.year" min="1" max="4" type="number" class="form-control">
+    <label>Year</label>
+
+    <br>
+
+    <input [(ngModel)]="student.age" type="number" class="form-control">
+    <label>Age</label>
+
+
+    <br>
+
+
+    <button (click)="setValues()" type="submit" class="btn btn-secondary mt-2">Submit</button>
+  </div>
+</div>

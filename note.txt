@@ -1,0 +1,9 @@
+"prerender": true,
+  "ssr": {
+ "entry": "server.ts"
+}
+to
+"prerender": false,
+"ssr": false
+
+for error referenceerror localstorage is not defined

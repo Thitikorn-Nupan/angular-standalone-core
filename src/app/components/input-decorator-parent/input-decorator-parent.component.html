@@ -1,0 +1,25 @@
+<div class="container w-75 mt-5">
+  <strong>Input decorator *** </strong>
+  <div class="form-floating mb-3">
+
+    <input [(ngModel)]="username" type="text" class="form-control">
+    <br>
+    <input [(ngModel)]="email" type="email" class="form-control">
+    <br>
+
+    <strong class="alert alert-warning">
+      Parent component {{ username }} {{ email }}
+    </strong>
+
+    <br>
+    <br>
+    <br>
+    <!-- The target in the square brackets, [], is the property you decorate with @Input() child component-->
+    <!-- "" mapped properties parent component-->
+    <app-input-decorator-child [username]="username"
+                               [email]="email">
+
+    </app-input-decorator-child>
+
+  </div>
+</div>

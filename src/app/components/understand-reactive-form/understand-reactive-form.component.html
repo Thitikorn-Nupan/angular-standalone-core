@@ -1,0 +1,90 @@
+<div class="container w-75 mt-5">
+  <!--
+       Reactive Forms is created inside component class so it is also referred as model driven forms.
+       Every form control will have an object in the component and this provides greater control and
+       flexibility in the form programming. Reactive Form is based on structured data model.
+       it's easy to validate value
+  -->
+
+  <strong>Reactive Forms **** Works with FormBuilder, FormGroup</strong>
+
+  <div class="form-control">
+
+    <form [formGroup]="formGroup1" (ngSubmit)="onClickedSubmitFormUser(formGroup1)" class="form form-control mt-1">
+      <!-- // form module -->
+
+      <div class="form-floating mb-3">
+        <!-- *** remember get value from tags *** just mapped the name  -->
+        <input formControlName="email" type="email" class="form-control" placeholder="name@example.com">
+        <label>Email address</label>
+        <div *ngIf="formGroup1.controls['email'].invalid && formGroup1.controls['email'].touched">
+          <span class="badge bg-danger">Invalid Format</span>
+        </div>
+        <div *ngIf="!formGroup1.controls['email'].invalid">
+          <span class="badge bg-success">Valid Format</span>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <!-- *** remember get value from tags *** just mapped the name  -->
+        <input formControlName="username" type="text" class="form-control" placeholder="name...">
+        <label>Username</label>
+      </div>
+
+
+      <!-- Radio buttons -->
+      <strong>Gender</strong>
+      <!-- radio button *** use same name difference value -->
+      <!-- *** remember get value from tags *** just mapped the name  -->
+      <!-- before mapped have to mark ngModel attribute in input text field.  -->
+      <div class="form-check">
+        <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="exampleRadios1"
+               value="Male" checked>
+        <label class="form-check-label" for="exampleRadios1">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="exampleRadios2"
+               value="Female">
+        <label class="form-check-label" for="exampleRadios2">
+          Female
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+
+    </form>
+
+
+    <form [formGroup]="formGroup2" (ngSubmit)="onClickedSubmitFormAddress(formGroup2)" class="form form-control mt-2">
+
+      <div class="form-floating mb-3">
+        <!-- *** remember get value from tags *** just mapped the name  -->
+        <input formControlName="address" type="text" class="form-control" placeholder="address...">
+        <label>Local address</label>
+        <!-- we can validate -->
+        <div *ngIf="formGroup2.controls['address'].invalid && formGroup2.controls['address'].touched">
+          <span class="badge bg-danger">Invalid Format</span>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <!-- *** remember get value from tags *** just mapped the name  -->
+        <input formControlName="zipcode" type="text" class="form-control" placeholder="zipcode...">
+        <label>Zipcode</label>
+        <div *ngIf="formGroup2.controls['zipcode'].invalid && formGroup2.controls['zipcode'].touched">
+          <span class="badge bg-danger">Invalid Format</span>
+        </div>
+      </div>
+
+      <span *ngIf="address.length != 0 && zipcode.length != 0" class="badge bg-success">{{ formGroup2.value | json }}</span>
+      <br>
+
+      <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+
+    </form>
+
+  </div>
+
+</div>
