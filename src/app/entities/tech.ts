@@ -1,5 +1,6 @@
 export class Tech {
-  private __id : number;
+
+  private _id : number;
   private _title : string;
   private _description : string;
   private _price : number;
@@ -7,7 +8,7 @@ export class Tech {
   private _category : string;
 
   constructor(_id: number, title: string, description: string, price: number, image: string, category: string) {
-    this.__id = _id;
+    this._id = _id;
     this._title = title;
     this._description = description;
     this._price = price;
@@ -15,12 +16,12 @@ export class Tech {
     this._category = category;
   }
 
-  get _id(): number {
-    return this.__id;
+  get id(): number {
+    return this._id;
   }
 
-  set _id(value: number) {
-    this.__id = value;
+  set id(value: number) {
+    this._id = value;
   }
 
   get title(): string {

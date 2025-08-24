@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {InputDecoratorChildComponent} from "../input-decorator-child/input-decorator-child.component";
+import {InputDecoratorChildComponent} from "./input-decorator-child/input-decorator-child.component";
 
 @Component({
   selector: 'app-input-decorator-parent',

@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Observable, of, ReplaySubject, Subject} from "rxjs";
-import {tap, delay} from 'rxjs/operators';
 
 // Service for Guards in Routing
 @Injectable({
@@ -9,11 +8,10 @@ import {tap, delay} from 'rxjs/operators';
 export class AuthenticateService {
 
   private isUserLoggedIn = false;
-  private readonly secondDelay = 1000;
-  //
   public userLoggedIn = new ReplaySubject<string>()
 
-  /*
+  /**
+    private readonly secondDelay = 1000;
     public login(username: string, password: string): Observable<any> {
       let response = "false"
       // Just a short if condition
@@ -35,7 +33,7 @@ export class AuthenticateService {
     }
   */
 
-  // *** same result
+  // Same result
   public login(username: string, password: string): Observable<any> {
     let response = "false"
     // Just a short if condition
@@ -55,8 +53,7 @@ export class AuthenticateService {
   public logout() {
     this.isUserLoggedIn = false;
     this.userLoggedIn.next('false')
-    // clear all storage
-    localStorage.removeItem('isUserLoggedIn');
+    localStorage.removeItem('isUserLoggedIn'); // clear all storage
   }
 
 }

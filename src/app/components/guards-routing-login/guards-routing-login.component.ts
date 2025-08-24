@@ -58,8 +58,7 @@ export class GuardsRoutingLoginComponent {
   protected onClickedSubmitFormLogin(formLogin: any) {
     let username = formLogin['username']
     let password = formLogin['password']
-    // login
-    // .subscribe() works for pipe() , next()
+    // login .subscribe() works for pipe() , next()
     this.authenticateService.login(username, password).subscribe(
       response => {
         if (response === 'true') {
@@ -72,8 +71,4 @@ export class GuardsRoutingLoginComponent {
   }
 
 
-  /*protected onClickedSubmitFormLogOut() {
-    this.messageLogin = '*** Login it\'s not done';
-    this.disableGuardsLogOutButton = false
-  }*/
 }

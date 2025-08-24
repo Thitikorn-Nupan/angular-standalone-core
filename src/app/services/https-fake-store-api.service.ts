@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import * as http from "node:http";
 import {Observable} from "rxjs";
 import {Todo} from "../entities/todo";
 import {Tech} from "../entities/tech";
@@ -9,14 +8,12 @@ import {Tech} from "../entities/tech";
   providedIn: 'root'
 })
 export class HttpsFakeStoreApiService {
-  private http: HttpClient
   private readonly fakeStoreApi = "https://fakestoreapiserver.reactbd.com" // 200
   private readonly fakeStoreApiTodos = "https://fakestoreapiserver.reactbd.com/todos" // 200
   private readonly fakeStoreApiTech = "https://fakestoreapiserver.reactbd.com/tech" // 200
 
-  constructor(http: HttpClient) {
-    this.http = http;
-  }
+  constructor(private http: HttpClient) {} // Short inject!
+
   public retrieveTodos() : Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.fakeStoreApi}/todos`)
   }

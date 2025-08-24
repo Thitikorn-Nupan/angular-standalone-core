@@ -9,7 +9,6 @@ import {Tech} from "../entities/tech";
 export class TechService {
 
   private httpsFakeStoreApiService: HttpsFakeStoreApiService;
-
   private techList = new ReplaySubject<Tech[]>();
   private techs: Tech[] = [] // just entity
 
@@ -32,7 +31,7 @@ export class TechService {
 
   public removeTech(id: number) {
     // find index by object
-    let techExists = this.techs.find(tech => tech._id === id);
+    let techExists = this.techs.find(tech => tech.id === id);
     // then remove it by index
     this.techs.splice(this.techs.indexOf(techExists!), 1);
     // *** have to update students on studentList.next(data)
@@ -50,8 +49,8 @@ export class TechService {
   }
 
   public addTech(tech: Tech) {
+    // add then updated
     this.techs.push(tech)
-    // updated
     this.techList.next(this.techs);
   }
 

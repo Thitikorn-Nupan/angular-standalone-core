@@ -1,13 +1,11 @@
 import {Student} from "../entities/student"
 import {Observable, ReplaySubject} from "rxjs";
 
-// concept service in angular have to inject
-// when I use this concept inject Service, it will create object class at the one time when injected !!! Pretties Cool
+// Concept service in angular have to inject when I use this concept inject Service, it will create object class at the one time when injected !!! Pretties Cool
 export class StudentService {
 
   private students: Student [];
-  // *** ReplaySubject is good cause ...
-  private studentList = new ReplaySubject<Student[]>();
+  private studentList = new ReplaySubject<Student[]>();  // *** ReplaySubject is good cause no delay
 
   constructor() {
     this.students = [];
@@ -18,9 +16,7 @@ export class StudentService {
       new Student(103, "Max Austin", "Environmental Engineering", 1, 19),
       new Student(104, "Jax Slider", "Photographic Science and Printing Technology", 4, 22),
     )
-    // publish students as data on studentList.next(students) it's meaning you can get data by subscribe(...)
-    this.studentList.next(this.students);
-    console.log('StudentService worked')
+    this.studentList.next(this.students); // publish students as data on studentList.next(students) it's meaning you can get data by subscribe(...)
   }
 
 
@@ -29,7 +25,6 @@ export class StudentService {
   }
 
   public removeStudent(id: number): void {
-    console.log('you gonna remove student id {}', id);
     // find student by id
     let studentExists = this.students.find(student => student.id === id);
     // then remove it by index
@@ -43,7 +38,6 @@ export class StudentService {
   public addStudent(student: Student): boolean {
     let result = this.students.push(student)
     if (result > 0) {
-      // updated
       this.studentList.next(this.students);
       return true;
     }

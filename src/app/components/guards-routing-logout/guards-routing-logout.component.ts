@@ -20,8 +20,7 @@ export class GuardsRoutingLogoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticateService.logout();
-    // if you want to redirect to path just use navigateByUrl() , navigate([])
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/login')// if you want to redirect to path just use navigateByUrl() , navigate([])
   }
 
 }

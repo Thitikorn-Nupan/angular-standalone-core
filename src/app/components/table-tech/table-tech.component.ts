@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpsFakeStoreApiService} from "../../services/https-fake-store-api.service";
 import {Tech} from "../../entities/tech";
-import {ReplaySubject} from "rxjs";
 import {CurrencyPipe, NgForOf} from "@angular/common";
 import {TechService} from "../../services/tech.service";
 import {FormsModule} from "@angular/forms";
@@ -54,14 +52,11 @@ export class TableTechComponent implements OnInit{
   }
 
   protected onClickedSubmitSearchForm(searchForm: any) {
-    // this.techService.getTechByCategory(category).subscribe(response => this.techs = response )
     let techByCategory = this.techsHold.filter(tech => tech.category == searchForm['category'])
     if (techByCategory.length == 0) {
-      // give the default techs
-      this.techs = this.techsHold
+      this.techs = this.techsHold // give the default techs
     } else {
       this.techs = techByCategory
-      console.log(this.techs)
     }
   }
 }

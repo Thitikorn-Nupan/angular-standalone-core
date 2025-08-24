@@ -1,4 +1,5 @@
 export class Student {
+
   private _id : number
   private _fullname: string;
   private _faculty: string;

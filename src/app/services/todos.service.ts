@@ -7,16 +7,15 @@ import {response} from "express";
 @Injectable({
   providedIn: 'root'
 })
-export class TodosService{
+export class TodosService {
 
   private todos: Todo[] = [];
   private todosList = new ReplaySubject<Todo[]>();
   private httpsFakeStoreApiService: HttpsFakeStoreApiService;
 
   constructor() {
-    // can inject like this
+    // You can inject like this
     this.httpsFakeStoreApiService = inject(HttpsFakeStoreApiService);
-    // onInt not work
     this.httpsFakeStoreApiService.retrieveTodos().subscribe(response => {
       this.todos = response;
       // and publish todos to todosList
@@ -29,13 +28,12 @@ export class TodosService{
   }
 
   public removeTodo(id: number) : void {
-    // find student by id
+    // find  by id
     let todoExists = this.todos.find(todo => todo.id === id);
     // then remove it by index
     // array.splice(startIndex, numberOfElementsToBeDeleted);
     this.todos.splice(this.todos.indexOf(todoExists!), 1);
-    // *** have to update students on studentList.next(data)
-    // cause students was changed
+    // *** have to update
     this.todosList.next(this.todos);
   }
 

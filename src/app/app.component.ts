@@ -3,16 +3,11 @@ import {RouterOutlet} from '@angular/router';
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {FormsModule} from "@angular/forms";
 import {UnderstandFormModuleComponent} from "./components/understand-form-module/understand-form-module.component";
-import {
-  UnderstandReactiveFormComponent
-} from "./components/understand-reactive-form/understand-reactive-form.component";
+import {UnderstandReactiveFormComponent} from "./components/understand-reactive-form/understand-reactive-form.component";
 import {NgIf} from "@angular/common";
 import {GuardsRoutingLoginComponent} from "./components/guards-routing-login/guards-routing-login.component";
-import {AuthenticateService} from "./services/authenticate.service";
 import {OptionsFormComponent} from "./components/options-form/options-form.component";
-import {StudentService} from "./services/student.service";
-import {TodosService} from "./services/todos.service";
-import {TechService} from "./services/tech.service";
+
 
 
 /*

@@ -26,7 +26,6 @@ export class CreateStudentFormComponent {
     const faculty = formCreateStudent['faculty']
     const year = formCreateStudent['year']
     const age = formCreateStudent['age']
-    // console.log(fullname,faculty,year,age);
     const student = new Student(id,fullname,faculty,year,age);
     let result = this.studentService.addStudent(student)
     if (result) {

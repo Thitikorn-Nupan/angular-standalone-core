@@ -1,4 +1,4 @@
-<div>
+<ng-container *ngIf="todos">
   <table class="table table-dark table-striped mt-5">
     <thead>
     <tr>
@@ -6,24 +6,21 @@
       <th scope="col">Title</th>
       <th scope="col">Completed</th>
       <th scope="col">Options</th>
-
     </tr>
     </thead>
     <tbody>
-
-    <tr *ngFor="
-    let todo of todos;">
-      <th scope="row">{{todo.id}}</th>
-      <td>{{todo.title}} </td>
-      <td>{{todo.completed}}</td>
-      <td>
-        <!-- just remove by id -->
-        <button (click)="onClickedRemoveOption(todo.id)" class="btn btn-danger">
-          remove
-        </button>
-      </td>
-    </tr>
+    <ng-container *ngFor=" let todo of todos;">
+      <tr >
+        <th scope="row">{{todo.id}}</th>
+        <td>{{todo.title}} </td>
+        <td>{{todo.completed}}</td>
+        <td>
+          <button (click)="onClickedRemoveOption(todo.id)" class="btn btn-danger">
+            remove
+          </button>
+        </td>
+      </tr>
+    </ng-container>
     </tbody>
   </table>
-
-</div>
+</ng-container>

@@ -18,15 +18,13 @@ import {JsonPipe, NgIf} from "@angular/common";
 export class UnderstandReactiveFormComponent implements OnInit {
 
   protected formBuilder: FormBuilder;
-
   // Created an instance of formGroup and set it to local variable, formdata.
   protected  formGroup1! : FormGroup;
   protected  formGroup2! : FormGroup;
-  // Cretes an instance of FormControl and set it one of the entry in formdata.
 
+  // Creates an instance of FormControl and set it one of the entry in formdata.
   private subFormBuilder1 =  {
-    /* PatternValidator is used to validate regex pattern. Let’s perform simple email validation. */
-    email :  ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")] ],
+    email :  ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")] ], // PatternValidator is used to validate regex pattern. Let’s perform simple email validation.
     username : new FormControl('', Validators.required),
     gender : new FormControl('', Validators.required),
   }
@@ -38,7 +36,7 @@ export class UnderstandReactiveFormComponent implements OnInit {
   protected address : string = ''
   protected zipcode : string = ''
 
-  /* FormBuilder has to inject then use */
+  /** FormBuilder has to inject then use */
   constructor(formBuilder: FormBuilder) {
     this.formBuilder = formBuilder;
   }
@@ -54,7 +52,5 @@ export class UnderstandReactiveFormComponent implements OnInit {
 
   protected onClickedSubmitFormAddress(formGroup2: FormGroup) {
     console.log(`${formGroup2.value['address']} , ${formGroup2.value['zipcode']}`);
-    this.address = formGroup2.value['address']
-    this.zipcode = formGroup2.value['zipcode']
   }
 }

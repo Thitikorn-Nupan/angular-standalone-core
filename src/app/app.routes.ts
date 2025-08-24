@@ -6,13 +6,12 @@ import {OptionsFormComponent} from "./components/options-form/options-form.compo
 
 export const routes: Routes = [
   {path: 'login', component: GuardsRoutingLoginComponent},
-  // ** CanActivate − Used to stop the access to a route.
+  // *** ExpenseGuard works seem if user is not logged in Just go ahead to /login path First
+  // CanActivate − Used to stop the access to a route.
   {path: 'logout', component: GuardsRoutingLogoutComponent, canActivate: [ExpenseGuard]},
-  // *** /options path it controls many standalone components
-  // So you protect parent component it is meaning you protect child components
+  // /options path it controls many standalone components So you protect parent component it is meaning you protect child components
   {path: 'options', component: OptionsFormComponent, canActivate: [ExpenseGuard]},
-  // ExpenseGuard works seem if user is not logged in Just go ahead to /login path First
-  // any request as '' , / will redirect to /options
+  // Any request as '' , / will redirect to /options
   {path: '**', redirectTo: '/options', pathMatch: 'full'}
 ];
 
