@@ -10,8 +10,8 @@ import {Router} from "@angular/router";
   styleUrl: './guards-routing-logout.component.css'
 })
 export class GuardsRoutingLogoutComponent implements OnInit {
-  private authenticateService: AuthenticateService;
-  private router: Router;
+  private readonly authenticateService: AuthenticateService;
+  private readonly router: Router;
 
   constructor(authenticateService: AuthenticateService, router: Router) {
     this.authenticateService = authenticateService;

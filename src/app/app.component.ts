@@ -5,32 +5,27 @@ import {FormsModule} from "@angular/forms";
 import {UnderstandFormModuleComponent} from "./components/understand-form-module/understand-form-module.component";
 import {UnderstandReactiveFormComponent} from "./components/understand-reactive-form/understand-reactive-form.component";
 import {NgIf} from "@angular/common";
-import {GuardsRoutingLoginComponent} from "./components/guards-routing-login/guards-routing-login.component";
+import {LoginComponent} from "./components/login/login.component";
 import {OptionsFormComponent} from "./components/options-form/options-form.component";
 
-
-
-/*
+/**
   Main Component works as NgModule
 */
 @Component({
   selector: 'app-root',
   standalone: true,
-  // Look at imports: [ Standalone components put on here ]
-  imports: [
+  imports: [ // Look at imports: [ Standalone components put on here ]
     NavbarComponent,
     UnderstandFormModuleComponent,
     UnderstandReactiveFormComponent,
     FormsModule,
     NgIf,
-    GuardsRoutingLoginComponent,
+    LoginComponent,
     RouterOutlet,
     OptionsFormComponent,
-    // HttpClientModule // set on app.config.ts instead
+    // HttpClientModule , you can set on app.config.ts instead
   ],
-  // Look at providers : [ many service put on here (child does not put) just inject ]
-  providers: [
-    // **** in standalone you can provide services on app.config.ts instead
+  providers: [ // Look at providers : [ many service put on here (child does not put) just inject ] **** you can provide services on app.config.ts instead
     // AuthenticateService,
     // StudentService,
     // TodosService,
@@ -40,7 +35,4 @@ import {OptionsFormComponent} from "./components/options-form/options-form.compo
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-
-  title = 'lab-ag-learn-standalone-concept';
-
 }

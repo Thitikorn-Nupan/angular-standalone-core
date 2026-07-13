@@ -13,11 +13,12 @@ import {NgForOf, NgIf} from "@angular/common";
   templateUrl: './table-todos.component.html',
   styleUrl: './table-todos.component.css'
 })
-// if refresh page any compoent will create new againt. OnInit , OnDestroy When the component is rendered to the template, these methods will run at the appropriate time. Of course, above all, the constructor runs first.
+// if refresh page any compoent will create new againt.
+// OnInit , OnDestroy When the component is rendered to the template, these methods will run at the appropriate time. Of course, above all, the constructor runs first.
 export class TableTodosComponent implements OnInit , OnDestroy {
 
+  private readonly todosService: TodosService;
   protected todos: Todo[] = [];
-  private todosService: TodosService;
 
   constructor(todosService: TodosService) {
     this.todosService = todosService;

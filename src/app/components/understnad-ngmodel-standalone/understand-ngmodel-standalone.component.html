@@ -1,10 +1,9 @@
 <div class="container w-75 mt-5">
   <strong>Form Module *** (Template driven forms) *** Two way ***</strong>
-  <div class="form-floating mb-3">
-    <input [(ngModel)]="student.fullname"  type="text" class="form-control">
+  <form class="form-floating mb-3" (submit)="onSubmit()">
+    <input [(ngModel)]="student.fullname" name="fullname" type="text" class="form-control">
     <label>Fullname</label>
     <br>
-
     <!-- Radio buttons if student.faculty equal some values below will check auto -->
     <strong>Faculty</strong>
     <div class="form-check">
@@ -25,16 +24,13 @@
         Faculty of Science
       </label>
     </div>
-
     <br>
-    <input [(ngModel)]="student.year" min="1" max="4" type="number" class="form-control">
+    <input [(ngModel)]="student.year" name="year" min="1" max="4" type="number" class="form-control">
     <label>Year</label>
-
     <br>
-    <input [(ngModel)]="student.age" type="number" class="form-control">
+    <input [(ngModel)]="student.age" name="age"  type="number" class="form-control">
     <label>Age</label>
-
     <br>
-    <button (click)="onSubmitClicked()" type="submit" class="btn btn-secondary mt-2">Submit</button>
-  </div>
+    <button type="submit" class="btn btn-secondary mt-2">Submit</button>
+  </form>
 </div>

@@ -1,6 +1,6 @@
 import {ApplicationConfig} from '@angular/core';
 import {provideRouter} from '@angular/router';
-import { provideHttpClient } from '@angular/common/http' // for httpClient
+import {provideHttpClient} from '@angular/common/http' // for httpClient
 import {routes} from './app.routes';
 import {provideClientHydration} from '@angular/platform-browser';
 import {AuthenticateService} from "./services/authenticate.service";
@@ -13,16 +13,16 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     /**
-      In standalone have to set provideHttpClient for use http client
-      With the recent changes in angular there is no app.module file. So with the new structure you will have to upate it in app.config file and ad
+     In standalone have to set provideHttpClient for use http client
+     With the recent changes in angular there is no app.module file. So with the new structure you will have to upate it in app.config file and ad
     */
-    provideHttpClient() ,
+    provideHttpClient(),
     /**
      You can use the providers field of the ApplicationConfig (passed to the bootstrapApplication function) to provide a service or other Injectable at the application level.
     */
-    {provide : AuthenticateService},
-    {provide : StudentService},
-    {provide : TodosService},
-    {provide : TechService},
+    {provide: AuthenticateService},
+    {provide: StudentService},
+    {provide: TodosService},
+    {provide: TechService},
   ]
 };

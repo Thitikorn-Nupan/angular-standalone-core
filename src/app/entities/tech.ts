@@ -1,5 +1,4 @@
 export class Tech {
-
   private _id : number;
   private _title : string;
   private _description : string;

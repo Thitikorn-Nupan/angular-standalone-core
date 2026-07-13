@@ -1,7 +1,6 @@
 <div class="container w-75 mt-5">
-
   <!-- Map value by name-->
-  <form #formCreateStudent="ngForm" (ngSubmit)="onClickCreateStudentForm(formCreateStudent.value)" class="form form-control mt-1">
+  <form #formCreateStudent="ngForm" (ngSubmit)="onCreateStudentForm(formCreateStudent.value)" class="form form-control mt-1">
     <div class="form-floating mb-3">
       <input ngModel type="number" class="form-control" placeholder="Id..." name="id">
       <label>Id</label>
@@ -46,5 +45,4 @@
     <button type="submit" class="btn btn-secondary mt-2">Submit</button>
     <button type="reset" class="btn btn-warning mt-2">Clear</button>
   </form>
-
 </div>

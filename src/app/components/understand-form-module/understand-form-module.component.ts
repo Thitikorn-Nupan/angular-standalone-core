@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 
 @Component({
@@ -12,8 +12,8 @@ import {FormsModule} from "@angular/forms";
 })
 export class UnderstandFormModuleComponent {
   // *** you have to know name tags own your own
-  protected onClickedSubmitFormUser(formUser1 : any) {
-    let s1="",s2="",s3=""
+  protected onSubmitFormUser(formUser1: any) {
+    let s1 = "", s2 = "", s3 = ""
     if (formUser1.s1) {
       s1 = "Frontend";
     }
@@ -24,7 +24,6 @@ export class UnderstandFormModuleComponent {
       s3 = "Full Stack";
     }
     console.log(`${formUser1.email} , ${formUser1.username} , ${formUser1.gender} , [${s1} , ${s2} , ${s3}]`);
-
   }
 
 }

@@ -8,29 +8,21 @@ import {
 } from '@angular/router';
 import {Injectable} from "@angular/core";
 
-
-// export const expenseGuard: CanActivateFn = (route, state) => {
-//   return true;
-// };
-
 @Injectable({
   providedIn: 'root'
 })
 export class ExpenseGuard implements CanActivate {
 
-  private router: Router;
+  private readonly router: Router;
+
   constructor(router: Router) {
     this.router = router;
     console.log('ExpenseGuard class worked')
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
-    console.log('canActivate method works')
-    console.log('url that user called : '+state.url)
-    let url = state.url
-    // console.log();
-    let isUserLoggedIn = localStorage.getItem('isUserLoggedIn')!
-
+    const url = state.url
+    const isUserLoggedIn = localStorage.getItem('isUserLoggedIn')!
     if (isUserLoggedIn && url === '/options') {
       // ** have to use .parseUrl() instead navigate() ** if not use will loop infin
       // i set navigateByUrl('/options') on login component

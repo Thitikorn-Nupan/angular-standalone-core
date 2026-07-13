@@ -17,11 +17,10 @@ import {JsonPipe, NgIf} from "@angular/common";
 })
 export class UnderstandReactiveFormComponent implements OnInit {
 
-  protected formBuilder: FormBuilder;
+  protected readonly formBuilder: FormBuilder;
   // Created an instance of formGroup and set it to local variable, formdata.
-  protected  formGroup1! : FormGroup;
-  protected  formGroup2! : FormGroup;
-
+  protected formGroup1! : FormGroup;
+  protected formGroup2! : FormGroup;
   // Creates an instance of FormControl and set it one of the entry in formdata.
   private subFormBuilder1 =  {
     email :  ["", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")] ], // PatternValidator is used to validate regex pattern. Let’s perform simple email validation.
@@ -46,11 +45,13 @@ export class UnderstandReactiveFormComponent implements OnInit {
     this.formGroup2 = this.formBuilder.group(this.subFormBuilder2)
   }
 
-  protected onClickedSubmitFormUser(formGroup: FormGroup) {
+  protected onSubmitFormUser(formGroup: FormGroup) {
     console.log(`${formGroup.value['email']} , ${formGroup.value['username']} , ${formGroup.value['gender']} `);
   }
 
-  protected onClickedSubmitFormAddress(formGroup2: FormGroup) {
+  protected onSubmitFormAddress(formGroup2: FormGroup) {
     console.log(`${formGroup2.value['address']} , ${formGroup2.value['zipcode']}`);
   }
+
+  protected readonly JSON = JSON;
 }

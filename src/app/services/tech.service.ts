@@ -8,7 +8,7 @@ import {Tech} from "../entities/tech";
 })
 export class TechService {
 
-  private httpsFakeStoreApiService: HttpsFakeStoreApiService;
+  private readonly httpsFakeStoreApiService: HttpsFakeStoreApiService;
   private techList = new ReplaySubject<Tech[]>();
   private techs: Tech[] = [] // just entity
 
@@ -18,11 +18,10 @@ export class TechService {
   }
 
   private initialTechList() {
-    this.httpsFakeStoreApiService.retrieveTech().subscribe(
-      response => {
-        this.techs = response;
-        this.techList.next(this.techs);
-      })
+    this.httpsFakeStoreApiService.retrieveTech().subscribe(response => {
+      this.techs = response;
+      this.techList.next(this.techs);
+    })
   }
 
   public getTechs() {
@@ -31,7 +30,7 @@ export class TechService {
 
   public removeTech(id: number) {
     // find index by object
-    let techExists = this.techs.find(tech => tech.id === id);
+    const techExists = this.techs.find(tech => tech.id === id);
     // then remove it by index
     this.techs.splice(this.techs.indexOf(techExists!), 1);
     // *** have to update students on studentList.next(data)
@@ -41,7 +40,7 @@ export class TechService {
 
   public editTech(techOld: Tech, tech: Tech): void {
     // find index by object
-    let index = this.techs.indexOf(techOld);
+    const index = this.techs.indexOf(techOld);
     // replace object at the same position it was stayed
     this.techs[index] = tech;
     // updated

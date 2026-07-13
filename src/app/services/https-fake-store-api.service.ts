@@ -12,7 +12,7 @@ export class HttpsFakeStoreApiService {
   private readonly fakeStoreApiTodos = "https://fakestoreapiserver.reactbd.com/todos" // 200
   private readonly fakeStoreApiTech = "https://fakestoreapiserver.reactbd.com/tech" // 200
 
-  constructor(private http: HttpClient) {} // Short inject!
+  constructor(private readonly http: HttpClient) {} // Short inject!
 
   public retrieveTodos() : Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.fakeStoreApi}/todos`)

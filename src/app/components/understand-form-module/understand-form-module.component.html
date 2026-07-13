@@ -5,8 +5,7 @@
       Keep a pattern
       #<name Of Form Tag>="ngForm"  works with (ngSubmit)="<method has argument type any>"
   -->
-  <form #formUser1="ngForm" (ngSubmit)="onClickedSubmitFormUser(formUser1.value)" class="form form-control mt-1">
-
+  <form #formUser1="ngForm" (ngSubmit)="onSubmitFormUser(formUser1.value)" class="form form-control mt-1">
     <div class="form-floating mb-3">
       <!-- *** Remember get value from tags *** just mapped the name before mapped have to mark ngModel attribute in input text field. -->
       <input ngModel type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
@@ -18,7 +17,6 @@
       <input ngModel type="email" class="form-control" id="username" name="username" >
       <label for="username" class="form-label">Username</label>
     </div>
-
 
     <!-- Radio buttons ** use same name difference value-->
     <strong>Gender</strong>
@@ -35,7 +33,6 @@
         Female
       </label>
     </div>
-
 
     <!-- Check boxes it returns true if user chose ,the value it is not importance -->
     <strong>Skills</strong>

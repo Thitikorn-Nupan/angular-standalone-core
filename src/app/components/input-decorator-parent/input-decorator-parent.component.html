@@ -1,9 +1,9 @@
 <div class="container w-75 mt-5">
   <strong>Input decorator *** </strong>
   <div class="form-floating mb-3">
-    <input [(ngModel)]="username" type="text" class="form-control" placeholder="username">
+    <input [(ngModel)]="username" name="username" type="text" class="form-control" placeholder="username">
     <br>
-    <input [(ngModel)]="email" type="email" class="form-control" placeholder="email">
+    <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="email">
     <br>
     <strong class="alert alert-warning">
       Parent component {{ username }} {{ email }}

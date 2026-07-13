@@ -17,5 +17,4 @@ export class InputDecoratorParentComponent {
   public email : string = '';
   public username : string = '';
 
-
 }

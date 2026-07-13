@@ -18,10 +18,9 @@ export class UnderstandNgmodelStandaloneComponent {
   protected faculty: string = ''
   protected year: number = 0
   protected age: number = 0
-
   protected student = new Student(100, 'Test', 'Faculty of Agriculture', 3, 19)
 
-  protected onSubmitClicked() {
+  protected onSubmit() {
     console.log(`${Object.values(this.student)}`)
   }
 }

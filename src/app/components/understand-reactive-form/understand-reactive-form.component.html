@@ -7,7 +7,8 @@
   -->
   <strong>Reactive Forms **** Works with FormBuilder, FormGroup</strong>
   <div class="form-control">
-    <form [formGroup]="formGroup1" (ngSubmit)="onClickedSubmitFormUser(formGroup1)" class="form form-control mt-1">
+    <!-- **** -->
+    <form [formGroup]="formGroup1" (ngSubmit)="onSubmitFormUser(formGroup1)" class="form form-control mt-1">
 
       <div class="form-floating mb-3">
         <!-- *** Remember get value from tags *** just mapped the formControlName  -->
@@ -33,7 +34,6 @@
         </div>
       </div>
 
-
       <!-- Radio buttons use same name difference value -->
       <strong>Gender</strong>
       <div class="form-check">
@@ -51,8 +51,8 @@
       <button type="submit" class="btn btn-secondary mt-2">Submit</button>
     </form>
 
-
-    <form [formGroup]="formGroup2" (ngSubmit)="onClickedSubmitFormAddress(formGroup2)" class="form form-control mt-2">
+    <!-- **** -->
+    <form [formGroup]="formGroup2" (ngSubmit)="onSubmitFormAddress(formGroup2)" class="form form-control mt-2">
       <div class="form-floating mb-3">
         <input [formControlName]="'address'" type="text" class="form-control" placeholder="address...">
         <label>Local address</label>
@@ -68,7 +68,9 @@
           <span class="badge bg-danger">Invalid Format</span>
         </div>
       </div>
-      <span *ngIf="address.length != 0 && zipcode.length != 0" class="badge bg-success">{{ formGroup2.value | json }}</span>
+      <span *ngIf="formGroup2.value['zipcode']  && formGroup2.value['address']" class="badge bg-success">
+        {{ JSON.stringify(formGroup2.value) }}
+      </span>
       <br>
       <button type="submit" class="btn btn-secondary mt-2">Submit</button>
     </form>

@@ -17,7 +17,7 @@ import {FormsModule} from "@angular/forms";
 })
 export class TableTechComponent implements OnInit{
 
-  private techService : TechService
+  private readonly techService : TechService
   protected techs : Tech[] = []
   protected techsHold : Tech[] = []
 
@@ -31,28 +31,26 @@ export class TableTechComponent implements OnInit{
 
   private loadTechs() {
     this.techService.getTechs().subscribe(response => {
-      // can change by category
-      this.techs = response
-      // for hold the real existing techs
-      this.techsHold = response
+      this.techs = response  // can change by category
+      this.techsHold = response // for hold the real existing techs
     })
   }
 
-  protected onClickedRemoveOption(_id: number) {
+  protected onRemoveOption(_id: number) {
     this.techService.removeTech(_id)
   }
 
-  protected onClickedEditOption(techOld: Tech) {
-    let techNew = new Tech(1020155,'Headphones Wireless','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla non magni facili blanditiis molestias soluta eveniet illum accusantium eius mollitia eligendi, ex iste doloribus magnam.',103.2,'https://i.ibb.co/zS3k6QB/headphone-1.webp','Headphones')
+  protected onEditOption(techOld: Tech) {
+    const techNew = new Tech(1020155,'Headphones Wireless','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla non magni facili blanditiis molestias soluta eveniet illum accusantium eius mollitia eligendi, ex iste doloribus magnam.',103.2,'https://i.ibb.co/zS3k6QB/headphone-1.webp','Headphones')
     this.techService.editTech(techOld,techNew)
   }
 
-  protected onClickedAddOption(tech: Tech) {
+  protected onAddOption(tech: Tech) {
     this.techService.addTech(tech)
   }
 
-  protected onClickedSubmitSearchForm(searchForm: any) {
-    let techByCategory = this.techsHold.filter(tech => tech.category == searchForm['category'])
+  protected onSubmitSearchForm(searchForm: any) {
+    const techByCategory = this.techsHold.filter(tech => tech.category == searchForm['category'])
     if (techByCategory.length == 0) {
       this.techs = this.techsHold // give the default techs
     } else {

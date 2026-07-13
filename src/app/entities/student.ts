@@ -1,5 +1,4 @@
 export class Student {
-
   private _id : number
   private _fullname: string;
   private _faculty: string;
@@ -13,7 +12,6 @@ export class Student {
     this._year = year;
     this._age = age;
   }
-
 
   set id(value: number) {
     this._id = value;

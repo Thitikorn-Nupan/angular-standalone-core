@@ -4,39 +4,16 @@
   <form #formDisableComponents="ngForm" (change)="onFormChange(formDisableComponents.value)" class="form-check">
     <!-- if clicked then returns True -->
     <ng-container *ngFor="let checkboxObject of checkboxesObject">
-      <input ngModel class="form-check-input" [name]="checkboxObject.name" type="checkbox">
+      <input ngModel
+             class="form-check-input"
+             [name]="checkboxObject.name"
+             type="checkbox">
       <label class="form-check-label">{{ checkboxObject.label }}</label>
       <br>
     </ng-container>
-    <!--<input ngModel class="form-check-input" name="disableReactForm" type="checkbox">
-    <label class="form-check-label">React Form</label>
-    <br>
-    <input ngModel class="form-check-input" name="disableStudentsTable" type="checkbox">
-    <label class="form-check-label">Students Table</label>
-    <br>
-    <input ngModel class="form-check-input" name="disableCreateStudentForm" type="checkbox">
-    <label class="form-check-label">Create Student</label>
-    <br>
-    <input ngModel class="form-check-input" name="disableTodosTable" type="checkbox">
-    <label class="form-check-label">Todos Table</label>
-    <br>
-    <input ngModel class="form-check-input" name="disableTechTable" type="checkbox">
-    <label class="form-check-label">Tech Table</label>
-    <br>
-    <input ngModel class="form-check-input" name="disableNgModelStandalone" type="checkbox">
-    <label class="form-check-label">NgModel on Standalone</label>
-    <br>
-    <input ngModel class="form-check-input" name="disableInputDecoratorParent" type="checkbox">
-    <label class="form-check-label">Input Decorator Parent</label>-->
   </form>
 </div>
-
-<!--
-  *******
-  Remember if you disable it means component will close too
-  So when you able it it will work again as create new object that class
-  *******
--->
+<!-- Remember if you disable it means component will close too So when you able it it will work again as create new object that class -->
 <ng-container *ngIf="disableFormModule">
   <app-understand-form-module></app-understand-form-module>
 </ng-container>

@@ -10,13 +10,10 @@ import {Component, Input} from '@angular/core';
 })
 export class InputDecoratorChildComponent {
 
-  // @Input() is an Angular decorator that marks a class property as an input property of the component.
-  // The @Input decorator is used to pass data from a parent component to a child component.
+  // @Input() is an Angular decorator that marks a class property as an input property of the component.  // The @Input decorator is used to pass data from a parent component to a child component.
   @Input()
   public email : string = '';
   @Input()
   public username : string = '';
-
-
 
 }

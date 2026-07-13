@@ -19,14 +19,13 @@ export class StudentService {
     this.studentList.next(this.students); // publish students as data on studentList.next(students) it's meaning you can get data by subscribe(...)
   }
 
-
   public retrieveStudentList(): Observable<Student[]> {
     return this.studentList;
   }
 
   public removeStudent(id: number): void {
     // find student by id
-    let studentExists = this.students.find(student => student.id === id);
+    const studentExists = this.students.find(student => student.id === id);
     // then remove it by index
     // array.splice(startIndex, numberOfElementsToBeDeleted);
     this.students.splice(this.students.indexOf(studentExists!), 1);
@@ -36,7 +35,7 @@ export class StudentService {
   }
 
   public addStudent(student: Student): boolean {
-    let result = this.students.push(student)
+    const result = this.students.push(student)
     if (result > 0) {
       this.studentList.next(this.students);
       return true;

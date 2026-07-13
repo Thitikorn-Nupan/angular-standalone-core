@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {StudentService} from "../../services/student.service";
 import {FormsModule} from "@angular/forms";
 import {Student} from "../../entities/student";
@@ -14,22 +14,22 @@ import {Student} from "../../entities/student";
 })
 export class CreateStudentFormComponent {
 
-  private studentService: StudentService;
+  private readonly studentService: StudentService;
 
   constructor(studentService: StudentService) {
     this.studentService = studentService;
   }
 
-  protected onClickCreateStudentForm(formCreateStudent: any) {
+  protected onCreateStudentForm(formCreateStudent: any) {
     const id = formCreateStudent['id']
     const fullname = formCreateStudent['fullname']
     const faculty = formCreateStudent['faculty']
     const year = formCreateStudent['year']
     const age = formCreateStudent['age']
-    const student = new Student(id,fullname,faculty,year,age);
-    let result = this.studentService.addStudent(student)
+    const student = new Student(id, fullname, faculty, year, age);
+    const result = this.studentService.addStudent(student)
     if (result) {
-      alert('create : '+result);
+      alert('create : ' + result);
     }
   }
 }

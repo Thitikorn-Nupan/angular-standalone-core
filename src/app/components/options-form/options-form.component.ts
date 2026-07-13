@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
-// import {RouterOutlet} from "@angular/router";
 import {UnderstandFormModuleComponent} from "../understand-form-module/understand-form-module.component";
 import {UnderstandReactiveFormComponent} from "../understand-reactive-form/understand-reactive-form.component";
 import {TableStudentsComponent} from "../table-students/table-students.component";
@@ -19,7 +18,6 @@ import {InputDecoratorChildComponent} from "../input-decorator-parent/input-deco
     FormsModule,
     ReactiveFormsModule,
     NgIf,
-    // RouterOutlet, i set on parent component
     UnderstandFormModuleComponent,
     UnderstandReactiveFormComponent,
     TableStudentsComponent,
@@ -35,7 +33,6 @@ import {InputDecoratorChildComponent} from "../input-decorator-parent/input-deco
   styleUrl: './options-form.component.css'
 })
 export class OptionsFormComponent {
-
   protected readonly checkboxesObject : {name : string,label:string}[] = [
     {name : 'disableFormModule' , label : 'Form Module'},
     {name : 'disableReactForm' , label : 'React Form'},
@@ -55,19 +52,8 @@ export class OptionsFormComponent {
   protected disableNgModelStandalone: boolean = false
   protected disableInputDecoratorParent: boolean = false
 
-
-  // ngOnInit(): void {
-    // no validate this form because if user can access /options it's meaning user had logged in or isUserLoggedIn = true on localStorage
-    /*if (localStorage.getItem('isUserLoggedIn') && localStorage.getItem('isUserLoggedIn') != undefined) {
-      this.disableOptions = true
-    } else {
-      this.disableOptions = false
-    }*/
-  // }
-
-
-  protected onFormChange(formModule : any ) { // i skip .value method cause i pass it on html form
-    if (formModule['disableFormModule']) {
+  protected onFormChange(formModule : any ) {
+    if (formModule['disableFormModule']) { // i skip .value method cause i pass it on html form
       this.disableFormModule = true
     } else {
       this.disableFormModule = false
@@ -87,6 +73,5 @@ export class OptionsFormComponent {
     this.disableNgModelStandalone = !!formModule['disableNgModelStandalone']
 
     this.disableInputDecoratorParent = !!formModule['disableInputDecoratorParent']
-
   }
 }
